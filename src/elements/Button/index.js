@@ -11,10 +11,12 @@ export default function Button(props) {
   if (props.isBlock) className.push("btn-block");
   if (props.hasShadow) className.push("btn-shadow");
 
+  // function for handle onClick
   const onClick = () => {
     if (props.onClick) props.onClick();
   };
 
+  // condition if property isDisabled or isLoading
   if (props.isDisabled || props.isLoading) {
     if (props.isDisabled) className.push("disabled");
     return (
@@ -31,6 +33,7 @@ export default function Button(props) {
     );
   }
 
+  // rendering component
   if (props.type === "link") {
     if (props.isExternal) {
       return (
@@ -74,7 +77,7 @@ Button.propTypes = {
   href: propTypes.string,
   target: propTypes.string,
   className: propTypes.string,
-  isExternal: propTypes.bool,
+  isPrimary: propTypes.bool,
   isDisabled: propTypes.bool,
   isLoading: propTypes.bool,
   isSmall: propTypes.bool,
